@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - main
-      - 2025-10-29-compile-gh-action
+      - 2025-11-12-tests-ci
   pull_request:
 
 jobs:
@@ -55,3 +55,4 @@ jobs:
         run: |
           make
           ./run-everything.sh
+          make test-grpc
