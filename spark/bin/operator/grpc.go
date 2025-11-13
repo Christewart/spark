@@ -1,5 +1,3 @@
-//go:build !lightspark
-
 package main
 
 import (
