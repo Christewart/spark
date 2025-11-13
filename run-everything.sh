@@ -391,7 +391,7 @@ run_operators_tmux() {
 # Function to check if operators are running by checking log file existence
 check_operators_ready() {
    local run_dir=$1
-   local timeout=30  # Maximum seconds to wait
+   local timeout=120  # Maximum seconds to wait
 
    echo "Checking operators startup status..."
 
