@@ -55,4 +55,4 @@ jobs:
         run: |
           make
           ./run-everything.sh
-          make test-grpc
+          mise test-grpc
