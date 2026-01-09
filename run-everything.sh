@@ -169,7 +169,7 @@ run_electrs_tmux() {
 
     read -r bitcoind_username bitcoind_password <<< "$(parse_bitcoin_config)"
 
-    local cmd="cd electrs.dev && cargo run --release --bin electrs -- -vvvv --network regtest --daemon-dir ${run_dir}/electrs_data --daemon-rpc-addr 0.0.0.0:8332 --cookie ${bitcoind_username}:${bitcoind_password} --http-addr 0.0.0.0:30000 --electrum-rpc-addr 0.0.0.0:50000 --cors \"*\" --jsonrpc-import 2>&1 | tee '${log_file}'"
+    local cmd="cd electrs.dev && cargo run --release --bin electrs -- -vvvv --network regtest --daemon-dir ${run_dir}/electrs_data --daemon-rpc-addr 0.0.0.0:8932 --cookie ${bitcoind_username}:${bitcoind_password} --http-addr 0.0.0.0:30000 --electrum-rpc-addr 0.0.0.0:50000 --cors \"*\" --jsonrpc-import 2>&1 | tee '${log_file}'"
 
     tmux send-keys -t "$session_name" "$cmd" C-m
 

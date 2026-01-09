@@ -44,9 +44,9 @@ func newClient() (*rpcclient.Client, error) {
 	addr, exists := os.LookupEnv("BITCOIN_RPC_URL")
 	if !exists {
 		if minikubeIp, exists := os.LookupEnv("MINIKUBE_IP"); exists {
-			addr = net.JoinHostPort(minikubeIp, "8332")
+			addr = net.JoinHostPort(minikubeIp, "8932")
 		} else {
-			addr = "127.0.0.1:8332"
+			addr = "127.0.0.1:8932"
 		}
 	}
 

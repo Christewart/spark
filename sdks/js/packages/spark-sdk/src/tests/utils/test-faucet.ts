@@ -60,8 +60,8 @@ export class BitcoinFaucet {
       const url =
         process.env.BITCOIN_RPC_URL ||
         (process.env.MINIKUBE_IP
-          ? `http://${process.env.MINIKUBE_IP}:8332`
-          : "http://127.0.0.1:8332");
+          ? `http://${process.env.MINIKUBE_IP}:8932`
+          : "http://127.0.0.1:8932");
       const username = process.env.BITCOIN_RPC_USER || "testutil";
       const password = process.env.BITCOIN_RPC_PASSWORD || "testutilpassword";
 

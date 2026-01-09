@@ -1,10 +1,10 @@
 bitcoind:
   regtest:
     network: regtest
-    host: 127.0.0.1:8332
+    host: 127.0.0.1:8932
     rpcuser: testutil
     rpcpassword: testutilpassword
-    zmqpubrawblock: tcp://127.0.0.1:28332
+    zmqpubrawblock: tcp://127.0.0.1:29332
 lrc20:
   regtest:
     disablerpcs: false
