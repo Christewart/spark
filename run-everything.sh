@@ -98,7 +98,8 @@ run_frost_signers_tmux() {
 
         # Construct the command properly with escaped paths
         local log_file="${run_dir}/logs/signer_${i}.log"
-        local cmd="unset AR && cd signer && cargo run --bin spark-frost-signer --release -- -u /tmp/frost_${i}.sock 2>&1 | tee '${log_file}'"
+        local signer_port=$((9990 + i))
+        local cmd="unset AR && cd signer && cargo run --bin spark-frost-signer --release -- -p ${signer_port} 2>&1 | tee '${log_file}'"
         # Send the command to tmux
         tmux send-keys -t "$session_name" "$cmd" C-m
     done
@@ -481,7 +482,7 @@ run_operators_tmux() {
        # Construct paths
        local log_file="${run_dir}/logs/sparkoperator_${i}.log"
        local db_file="postgresql://127.0.0.1:5432/sparkoperator_${i}?sslmode=disable"
-       local signer_socket="unix:///tmp/frost_${i}.sock"
+    local signer_address="localhost:$((9990 + i))"
 
        local priv_key_file="${run_dir}/operator_${i}.key"
        local key_file="${run_dir}/server_${i}.key"
@@ -494,7 +495,7 @@ run_operators_tmux() {
            -key '${priv_key_file}' \
            -operators '${operator_config_file}' \
            -threshold ${min_signers} \
-           -signer '${signer_socket}' \
+           -signer '${signer_address}' \
            -port ${port} \
            -database '${db_file}' \
            -server-cert '${cert_file}' \
