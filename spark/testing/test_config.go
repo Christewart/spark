@@ -152,7 +152,7 @@ func GetLocalFrostSignerAddress(tb testing.TB) string {
 	if isGripmock {
 		return "localhost:8535"
 	}
-	return "unix:///tmp/frost_0.sock"
+	return "localhost:9990"
 }
 
 func TestConfig(tb testing.TB) *so.Config {
